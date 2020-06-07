@@ -1,0 +1,22 @@
+<p>clientes works!</p>
+<table class = "table">
+<thead>
+<tr>
+    <th scope="col">#</th>>
+    <th scope="col">Nome</th>>
+    <th scope="col">Sobrenome</th>>
+    <th scope="col">CPF</th>>   
+    <th scope="col">Login</th>>   
+
+</tr>
+</thead>
+<tbody>
+    <tr *ngFor="let cliente of clientes">
+        <td>{{cliente._id}}</td>>
+        <td>{{cliente.nome}}</td>>
+        <td>{{cliente.sobrenome}}</td>>
+        <td>{{cliente.cpf}}</td>>        
+        <td>{{cliente.login}}</td>>        
+    </tr>
+</tbody>
+</table>
