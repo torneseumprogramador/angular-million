@@ -9,6 +9,13 @@ import { HomeComponent } from './view/home/home.component';
 import { LoginComponent } from './view/login/login.component';
 import { ClientesComponent } from './view/clientes/clientes.component';
 import { CdbComponent } from './view/cdb/cdb.component';
+import { HeaderComponent } from './view/header/header.component';
+import { FooterComponent } from './view/footer/footer.component';
+import { AcaoComponent } from './view/ofertas/acao/acao.component';
+import { TesouroComponent } from './view/ofertas/tesouro/tesouro.component';
+import { FundoComponent } from './view/ofertas/fundo/fundo.component';
+import { OfertasComponent } from './view/ofertas/ofertas.component';
+import { InformativoComponent } from './view/informativo/informativo.component';
 
 
 @NgModule({
@@ -17,7 +24,14 @@ import { CdbComponent } from './view/cdb/cdb.component';
     HomeComponent,
     LoginComponent,
     ClientesComponent,
-    CdbComponent
+    CdbComponent,
+    HeaderComponent,
+    FooterComponent,
+    AcaoComponent,
+    TesouroComponent,
+    FundoComponent,
+    OfertasComponent,
+    InformativoComponent
     
   ],
   imports: [

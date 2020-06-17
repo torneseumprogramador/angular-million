@@ -48,7 +48,6 @@ export class LoginComponent implements OnInit {
     
     
     this.cliente.fazerLogin((cliente: Cliente) =>{
-      debugger
       if(!cliente){
         //alert("erro");
         this.mensagem="Login ou senha inválido"
@@ -58,7 +57,7 @@ export class LoginComponent implements OnInit {
         return
 
       }
-
+      
        Sessao.setCliente(cliente)
        this.router.navigateByUrl("home")
     });

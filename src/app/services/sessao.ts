@@ -12,7 +12,7 @@ export class Sessao{
             return null
         }
         let cli:Cliente
-        JSON.parse(localStorage.getItem("cliente"))
+        cli = JSON.parse(localStorage.getItem("cliente"))
         return cli
     }
 
