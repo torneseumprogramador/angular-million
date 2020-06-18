@@ -14,7 +14,6 @@ export class InformativoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    debugger
     this.cliente = Sessao.getCliente()
   }
 

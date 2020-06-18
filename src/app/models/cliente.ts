@@ -24,7 +24,6 @@ export class Cliente{
     
         this.http.post(`${environment.apihost}/cliente/login`,this,
         { headers: new HttpHeaders({'token':'123456'})}).subscribe((cliente: Cliente)=>{
-            debugger
             callback.call(null,cliente);
         },(error:HttpErrorResponse)=> {
             

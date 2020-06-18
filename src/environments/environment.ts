@@ -4,6 +4,7 @@
 
 export const environment = {
   apihost:"https://service-clientes-stat.herokuapp.com",
+  apiacoes:"https://acoes-service-prod.herokuapp.com",
   production: false
 };
 
