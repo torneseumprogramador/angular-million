@@ -21,15 +21,12 @@ export class Cliente{
     }
 
     public fazerLogin(callback):void{
-    
-        this.http.post(`${environment.apihost}/cliente/login`,this,
-        { headers: new HttpHeaders({'token':'123456'})}).subscribe((cliente: Cliente)=>{
+        this.http.post(`${environment.apiClientes}/cliente/login`,this,
+        { headers: new HttpHeaders({'token':environment.token})}).subscribe((cliente: Cliente)=>{
             callback.call(null,cliente);
         },(error:HttpErrorResponse)=> {
-            
             callback.call(null,null);    
         }) 
-        
     }
 }
     

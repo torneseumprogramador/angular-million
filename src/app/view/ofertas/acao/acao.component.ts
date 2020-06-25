@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class AcaoComponent implements OnInit {
 
+  acaoDestaque:Acao;
+
   constructor(
     private http:HttpClient,
     private router:Router) { 
@@ -17,13 +19,16 @@ export class AcaoComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.acaoDestaque();
+    //this.acaoDestaque();
+    this.loadAcoes();
   }
 
-  acao:Acao;
-  acoes:Acao[];
-
+  
+/* Modo feito com Callback
   public acaoDestaque(){
+    
+    acao:Acao;
+    acoes:Acao[];
     
     Acao.getAcao((acoes)=>{
       this.acoes = acoes
@@ -31,5 +36,12 @@ export class AcaoComponent implements OnInit {
     },this.http)      
 
   }
+*/
+/*Modo feito com Async Await */
+public async loadAcoes(){
+  const acoes:Acao[]=await Acao.todos(this.http);
+  if(acoes.length>0)
+  this.acaoDestaque = acoes[0];
+}
 
 }

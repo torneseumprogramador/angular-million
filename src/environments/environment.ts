@@ -3,8 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  apihost:"https://service-clientes-stat.herokuapp.com",
-  apiacoes:"https://acoes-service-prod.herokuapp.com",
+  apiClientes:"https://service-clientes-stat.herokuapp.com",
+  apiAcoes:"https://acoes-service-prod.herokuapp.com",
+  apiFundo:"https://service-fundoimobiliario-stat.herokuapp.com",
+  apiUsuario:"https://service-usuarios-stat.herokuapp.com",
+  apiTesouro:"https://service-tesouromillion-stage..herokuapp.com",
+  token:'123456',
   production: false
 };
 
