@@ -1,25 +1,12 @@
-<p>cdb works!</p>
-<p>clientes works!</p>
-<table class = "table">
-<thead>
-<tr>
-    <th scope="col">#</th>>
-    <th scope="col">Nome</th>>
-    <th scope="col">Valor Taxa</th>>
-    <th scope="col">Vencimento</th>>   
-    <th scope="col">Data da Compra</th>>   
-    
 
-</tr>
-</thead>
-<tbody>
-    <tr *ngFor="let cdb of cdbs">
-        <td>{{cdb._id}}</td>>
-        <td>{{cdb.nome}}</td>>
-        <td>{{cdb.valor_taxa}}</td>>
-        <td>{{cdb.vencimento}}</td>>        
-        <td>{{cdb.data_compra}}</td>>        
-        
-    </tr>
-</tbody>
-</table>
+<div class="card mb-4 shadow-sm" >
+    <div class="card-header">
+    <h4 class="my-0 font-weight-normal">CDB {{cdbDestaque.nome}}</h4>
+    </div>
+    <div class="card-body">
+    <h1 class="card-title pricing-card-title">Taxa de Juros:{{cdbDestaque.valor_taxa}}% </h1>
+    <p>Ao comprar  o CDB do {{cdbDestaque.nome}} você ganhará a taxa de juros de
+        {{cdbDestaque.valor_taxa}} % sobre o seu investimento </p>
+    <button type="button" class="btn btn-lg btn-block btn-primary"> Investir</button>
+    </div>
+</div>

@@ -7,7 +7,8 @@ export const environment = {
   apiAcoes:"https://acoes-service-prod.herokuapp.com",
   apiFundo:"https://service-fundoimobiliario-stat.herokuapp.com",
   apiUsuario:"https://service-usuarios-stat.herokuapp.com",
-  apiTesouro:"https://service-tesouromillion-stage..herokuapp.com",
+  apiTesouro:"https://service-tesouromillion-stage.herokuapp.com",
+  apiCDB:"https://cdb-service.herokuapp.com",
   token:'123456',
   production: false
 };

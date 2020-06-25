@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http'
+import { Cdb } from 'src/app/models/cdb';
 
 @Component({
   selector: 'app-cdb',
@@ -8,17 +9,21 @@ import {HttpClient, HttpHeaders} from '@angular/common/http'
 })
 export class CdbComponent implements OnInit {
 
-  constructor(private http:HttpClient) {}
-
-  private rest_api_server = "https://cdb-service.herokuapp.com/cdb.json";
+  cdbDestaque:Cdb;
   
-  public cdbs = []
+  constructor(private http:HttpClient) {}
+  
 
   ngOnInit(): void {
+      this.loadCdb();
+  }
 
-    this.http.get(this.rest_api_server,{ headers: new HttpHeaders({'token':'123456'})}).subscribe((data: any[])=>{
-      this.cdbs = data;
-    })
+  public async loadCdb(){
+    const cdbs:Cdb[]  =  await Cdb.todosCdb(this.http);
+    if(cdbs.length>0){
+      this.cdbDestaque = cdbs[0];
+  }
+
 
   }
 
