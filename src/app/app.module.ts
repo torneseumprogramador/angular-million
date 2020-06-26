@@ -16,6 +16,8 @@ import { TesouroComponent } from './view/ofertas/tesouro/tesouro.component';
 import { FundoComponent } from './view/ofertas/fundo/fundo.component';
 import { OfertasComponent } from './view/ofertas/ofertas.component';
 import { InformativoComponent } from './view/informativo/informativo.component';
+import { TesouroHomeComponent } from './view/tesouro-home/tesouro-home.component';
+import { NaoEncontradoComponent } from './view/nao-encontrado/nao-encontrado.component';
 
 
 @NgModule({
@@ -31,8 +33,9 @@ import { InformativoComponent } from './view/informativo/informativo.component';
     TesouroComponent,
     FundoComponent,
     OfertasComponent,
-    InformativoComponent
-    
+    InformativoComponent,
+    TesouroHomeComponent,
+    NaoEncontradoComponent
   ],
   imports: [
     BrowserModule,
