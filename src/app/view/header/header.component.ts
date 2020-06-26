@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Sessao } from 'src/app/services/sessao';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router:Router
+  ) { }
 
   ngOnInit(): void {
   }
 
+  sair(){
+    Sessao.removeCliente()
+    this.router.navigateByUrl("/")
+  }
 }

@@ -18,17 +18,20 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private http:HttpClient,
-    private router:Router) { 
+    private router:Router) {
 
     }
 
   ngOnInit(): void {
+    if(Sessao.getCliente()){
+      this.router.navigateByUrl("/home")
+    }
     this.cliente = new Cliente(this.http)
   }
 
 
   fazerLogin(){
-    
+
 
     if(this.cliente.login==""){
       this.mensagem = "Preencha o login"
@@ -41,12 +44,12 @@ export class LoginComponent implements OnInit {
     if(this.cliente.senha==""){
       this.mensagem = "Preencha a senha"
       setTimeout(()=>{
-        this.mensagem="" 
+        this.mensagem=""
       },1000)
       return
     }
-    
-    
+
+
     this.cliente.fazerLogin((cliente: Cliente) =>{
       if(!cliente){
         //alert("erro");
@@ -57,7 +60,7 @@ export class LoginComponent implements OnInit {
         return
 
       }
-      
+
        Sessao.setCliente(cliente)
        this.router.navigateByUrl("home")
     });
