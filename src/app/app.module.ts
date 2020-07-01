@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './view/home/home.component';
 import { LoginComponent } from './view/login/login.component';
 import { ClientesComponent } from './view/clientes/clientes.component';
-import { CdbComponent } from './view/cdb/cdb.component';
+import { CdbComponent } from './view/ofertas/cdb/cdb.component';
 import { HeaderComponent } from './view/header/header.component';
 import { FooterComponent } from './view/footer/footer.component';
 import { AcaoComponent } from './view/ofertas/acao/acao.component';
@@ -18,6 +18,10 @@ import { OfertasComponent } from './view/ofertas/ofertas.component';
 import { InformativoComponent } from './view/informativo/informativo.component';
 import { TesouroHomeComponent } from './view/tesouro-home/tesouro-home.component';
 import { NaoEncontradoComponent } from './view/nao-encontrado/nao-encontrado.component';
+import { AcaoHomeComponent } from './view/acao-home/acao-home.component';
+import { FundoHomeComponent } from './view/fundo-home/fundo-home.component';
+import { CdbHomeComponent } from './view/cdb-home/cdb-home.component';
+import { PerfilHomeComponent } from './view/perfil-home/perfil-home.component';
 
 
 @NgModule({
@@ -35,7 +39,11 @@ import { NaoEncontradoComponent } from './view/nao-encontrado/nao-encontrado.com
     OfertasComponent,
     InformativoComponent,
     TesouroHomeComponent,
-    NaoEncontradoComponent
+    NaoEncontradoComponent,
+    AcaoHomeComponent,
+    FundoHomeComponent,
+    CdbHomeComponent,
+    PerfilHomeComponent
   ],
   imports: [
     BrowserModule,
