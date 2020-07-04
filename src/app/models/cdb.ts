@@ -4,14 +4,18 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class Cdb{
 
 
-public nome:String;
-public valor_taxa:Number;
-public vencimento:Date;
-public data_compra:Date;
+    public nome:String;
+    public valor_taxa:Number;
+    public vencimento:Date;
+    public data_compra:Date;
 
-/*Modo feito com Async Await */
-public static async todosCdb(http:HttpClient){
-    return await http.get<Cdb[]>(`${environment.apiCDB}/cdb.json`,{ headers: new HttpHeaders({'token':environment.token})}).toPromise();
-}
+    /*Modo feito com Async Await */
+    public static async todosCdb(http:HttpClient){
+        return await http.get<Cdb[]>(`${environment.apiCDB}/cdb.json`,{ headers: new HttpHeaders({'token':environment.token})}).toPromise();
+    }
+
+    public async salvar(http:HttpClient){
+        return await http.post<Cdb>(`${environment.apiCDB}/cdb.json`, this,{ headers: new HttpHeaders({'token':environment.token})}).toPromise();
+    }
 
 }

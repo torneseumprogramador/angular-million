@@ -22,6 +22,7 @@ import { AcaoHomeComponent } from './view/acao-home/acao-home.component';
 import { FundoHomeComponent } from './view/fundo-home/fundo-home.component';
 import { CdbHomeComponent } from './view/cdb-home/cdb-home.component';
 import { PerfilHomeComponent } from './view/perfil-home/perfil-home.component';
+import { CdbCrudComponent } from './view/cdb-home/cdb-crud/cdb-crud.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { PerfilHomeComponent } from './view/perfil-home/perfil-home.component';
     AcaoHomeComponent,
     FundoHomeComponent,
     CdbHomeComponent,
-    PerfilHomeComponent
+    PerfilHomeComponent,
+    CdbCrudComponent
   ],
   imports: [
     BrowserModule,
