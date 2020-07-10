@@ -15,7 +15,7 @@ export class CdbCrudComponent implements OnInit {
     this.cdb = new Cdb()
     this.buscarTodos()
   }
-  
+
   cdb:Cdb
   cdbs:Cdb[]
   sucesso:string
@@ -23,7 +23,6 @@ export class CdbCrudComponent implements OnInit {
 
   async salvar(){
     try{
-       debugger
       await this.cdb.salvar(this.http)
       if(!this.cdb._id){
         this.sucesso = 'Criado com sucesso'
@@ -31,34 +30,56 @@ export class CdbCrudComponent implements OnInit {
         this.sucesso = 'Alterado com sucesso'
       }
 
-        this.erro = ''
-       
-        this.buscarTodos()
-        
+      this.erro = ''
+      this.buscarTodos()
     }
     catch(e){
       this.sucesso = ''
-      this.erro = e.message
+      this.erro = e.error
     }
   }
 
-    async buscarTodos(){
+  limpar(){
+    this.cdb = new Cdb()
+  }
 
-      this.cdbs = await  Cdb.todosCdb(this.http)
+  async buscarTodos(){
+    this.cdbs = await Cdb.todosCdb(this.http)
+  }
+
+  // build(de, para){
+  //   for(let pPara of Object.keys(para)){
+  //     if(pPara === "http") continue
+  //     for(let pDe of Object.keys(de)){
+  //       if(pDe === pPara){
+  //         para[pPara] = de[pDe]
+  //       }
+  //     }
+  //   }
+  // }
+
+  async editar(cdb:Cdb){
+
+    // @ts-ignore
+    // cdbGlobal = cdb
+
+    // localStorage.setItem("cdb", JSON.stringify(cdb))
+
+    // this.build(cdb, this.cdb)
+    this.cdb._id = cdb._id
+    this.cdb.nome = cdb.nome
+    this.cdb.valor_taxa = cdb.valor_taxa
+    this.cdb.data_compra = new Date(cdb.data_compra)
+    this.cdb.vencimento = new Date(cdb.vencimento)
+  }
+
+  async excluir(cdb){
+    if(confirm("Confirma?")){
+      this.cdb._id = cdb._id
+      await this.cdb.excluir(this.http)
+      this.buscarTodos()
     }
-  
-
-    async editar(cdb:Cdb){
-
-      this.cdb = cdb
-    }
-
-    async excluir(cdb){
-      if(confirm("Confirma?")){
-
-      await  this.cdb.excluir(this.http)
-      }
-    }
+  }
 
 
 }

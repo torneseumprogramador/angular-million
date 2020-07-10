@@ -8,7 +8,8 @@ export const environment = {
   apiFundo:"https://service-fundoimobiliario-stat.herokuapp.com",
   apiUsuario:"https://service-usuarios-stat.herokuapp.com",
   apiTesouro:"https://service-tesouromillion-stage.herokuapp.com",
-  apiCDB:"https://cdb-service.herokuapp.com",
+  apiCDB:"http://localhost:3000",
+  // apiCDB:"https://cdb-service.herokuapp.com",
   token:'123456',
   production: false
 };

@@ -9,18 +9,22 @@
     </div>
     <div class="form-group">
       <label for="vencimento">Vencimento</label>
-      <input type="date" class="form-control" [(ngModel)]="cdb.vencimento" id="vencimento" placeholder="valor da vencimento">
+      <input type="date" class="form-control" [ngModel]="cdb.vencimento | date:'yyyy-MM-dd'" (ngModelChange)="cdb.vencimento = $event" id="vencimento" placeholder="valor da vencimento">
     </div>
     <div class="form-group">
       <label for="data_compra">data_compra</label>
-      <input type="date" class="form-control" [(ngModel)]="cdb.data_compra" id="data_compra" placeholder="data_compra">
+      <input type="date" class="form-control" [ngModel]="cdb.data_compra | date:'yyyy-MM-dd'" (ngModelChange)="cdb.data_compra = $event" id="data_compra" placeholder="data_compra">
     </div>
 
 
     <div style="color:green" >{{sucesso}}</div>
     <div style="color:red" >{{erro}}</div>
-    <button type="button" class="btn btn-primary" (click)="salvar()">Salvar</button>
-</div>
+    <button type="button" class="btn btn-primary" *ngIf="!cdb._id" (click)="salvar()">Criar</button>
+    <div *ngIf="cdb._id" >
+      <button type="button" class="btn btn-primary" (click)="salvar()">Alterar</button>
+    </div>
+    <button type="button" class="btn btn-default" (click)="limpar()">Limpar</button>
+  </div>
 
 <div class="card">
   <div class="card-body p-0">
@@ -32,19 +36,18 @@
           <th>Valor Taxa</th>
           <th>Vencimento</th>
           <th>data da compra</th>
-          
+
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let cdb of cdbs">
-          <td>{{cdb.nome}}</td>
-          <td>{{cdb.valor_taxa}}</td>
-          <td>{{cdb.vencimento}}</td>
-          <td>{{cdb.data_compra}}</td>
-          <button class="btn btn-sm btn-warning mr-2" (click)="editar(cdb)">Editar</button>
-          <button class="btn btn-sm btn-danger" (click)="excluir(cdb)">Excluir</button>
-
-        </tr>
+          <tr *ngFor="let cdb of cdbs">
+            <td>{{cdb.nome}}</td>
+            <td>{{cdb.valor_taxa}}</td>
+            <td>{{cdb.vencimento | date:'dd/MM/yyyy'}}</td>
+            <td>{{cdb.data_compra | date:'dd/MM/yyyy'}}</td>
+            <button class="btn btn-sm btn-warning mr-2" (click)="editar(cdb)">Editar</button>
+            <button class="btn btn-sm btn-danger" (click)="excluir(cdb)">Excluir</button>
+          </tr>
         </tbody>
       </table>
       <br>

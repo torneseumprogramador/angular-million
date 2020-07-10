@@ -11,21 +11,19 @@ export class Cdb{
 
     /*Modo feito com Async Await */
     public static async todosCdb(http:HttpClient){
-        return await http.get<Cdb[]>(`${environment.apiCDB}/cdb.json`,{ headers: new HttpHeaders({'token':environment.token})}).toPromise();
+      return await http.get<Cdb[]>(`${environment.apiCDB}/cdb.json`,{ headers: new HttpHeaders({'token':environment.token})}).toPromise();
     }
 
     public async salvar(http:HttpClient){
-       
-        if(!this._id){
-            return await http.post<Cdb>(`${environment.apiCDB}/cdb.json`, this,{ headers: new HttpHeaders({'token':environment.token})}).toPromise();
-    }else{
-            return await http.put<Cdb>(`${environment.apiCDB}/cdb/${this._id}.json`, this,{ headers: new HttpHeaders({'token':environment.token})}).toPromise();
-    }
-    
+      if(!this._id){
+        return await http.post<Cdb>(`${environment.apiCDB}/cdb.json`, this,{ headers: new HttpHeaders({'token':environment.token})}).toPromise();
+      }else{
+        return await http.put<Cdb>(`${environment.apiCDB}/cdb/${this._id}.json`, this,{ headers: new HttpHeaders({'token':environment.token})}).toPromise();
+      }
     }
 
     public async excluir(http:HttpClient){
-        return  await http.delete<Cdb>(`${environment.apiCDB}/cdb/${this._id}.json`,{ headers: new HttpHeaders({'token':environment.token})}).toPromise();
+      return await http.delete<Cdb>(`${environment.apiCDB}/cdb/${this._id}.json`,{ headers: new HttpHeaders({'token':environment.token})}).toPromise();
     }
-    
+
 }
