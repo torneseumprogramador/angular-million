@@ -13,22 +13,52 @@ export class CdbCrudComponent implements OnInit {
 
   ngOnInit(): void {
     this.cdb = new Cdb()
+    this.buscarTodos()
   }
   
   cdb:Cdb
+  cdbs:Cdb[]
   sucesso:string
   erro:string
 
   async salvar(){
     try{
+       debugger
       await this.cdb.salvar(this.http)
-      this.sucesso = 'criiiiiiiiiiado com sucessssssssssssssssssssssssssssssssssssso'
-      this.erro = ''
+      if(!this.cdb._id){
+        this.sucesso = 'Criado com sucesso'
+      }else{
+        this.sucesso = 'Alterado com sucesso'
+      }
+
+        this.erro = ''
+       
+        this.buscarTodos()
+        
     }
     catch(e){
       this.sucesso = ''
       this.erro = e.message
     }
   }
+
+    async buscarTodos(){
+
+      this.cdbs = await  Cdb.todosCdb(this.http)
+    }
+  
+
+    async editar(cdb:Cdb){
+
+      this.cdb = cdb
+    }
+
+    async excluir(cdb){
+      if(confirm("Confirma?")){
+
+      await  this.cdb.excluir(this.http)
+      }
+    }
+
 
 }

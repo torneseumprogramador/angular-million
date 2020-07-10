@@ -21,3 +21,33 @@
     <div style="color:red" >{{erro}}</div>
     <button type="button" class="btn btn-primary" (click)="salvar()">Salvar</button>
 </div>
+
+<div class="card">
+  <div class="card-body p-0">
+    <div class="table-responsive">
+      <table class="table m-0">
+        <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Valor Taxa</th>
+          <th>Vencimento</th>
+          <th>data da compra</th>
+          
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let cdb of cdbs">
+          <td>{{cdb.nome}}</td>
+          <td>{{cdb.valor_taxa}}</td>
+          <td>{{cdb.vencimento}}</td>
+          <td>{{cdb.data_compra}}</td>
+          <button class="btn btn-sm btn-warning mr-2" (click)="editar(cdb)">Editar</button>
+          <button class="btn btn-sm btn-danger" (click)="excluir(cdb)">Excluir</button>
+
+        </tr>
+        </tbody>
+      </table>
+      <br>
+    </div>
+  </div>
+</div>
